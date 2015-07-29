@@ -11,7 +11,7 @@ Graphillion for Windows requires "Python 2.7 for Windows," which is available at
 
 ## Install
 
-Just download and run the installer Graphillion-0.98-r0.win-amd64-py2.7.exe.
+Just download and run the installer [Graphillion-0.98-r0.win-amd64-py2.7.exe](https://github.com/junkawahara/graphillion_for_windows/blob/master/Graphillion-0.98-r0.win-amd64-py2.7.exe?raw=true).
 
 ## Notes
 
