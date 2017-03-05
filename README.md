@@ -1,21 +1,28 @@
 # Graphillion for Windows
 
-[Graphillion](https://github.com/takemaru/graphillion) is a fast, lightweight library for a huge number of graphs, which is mainly developed by Takeru Inoue and JST ERATO MINATO project. This repository provides a windows installer of graphillion.
+[Graphillion](https://github.com/takemaru/graphillion) is a fast, lightweight library for a huge number of graphs, which is mainly developed by Takeru Inoue and JST ERATO MINATO project. This repository provides wheels of graphillion for windows.
 
 ## Requirements
 
-Graphillion for Windows requires "Python 2.7 for Windows," which is available at https://www.python.org/downloads/. We have confirmed that it worked well under the following environment:
+Graphillion for Windows supports Python 3.6, 3.5, and 2.7.
+We have confirmed that it worked well under the following environment:
 
-* Windows 8.1
-* Python 2.7.10
+* Windows 10, [Python 3.6.0 for Windows](https://www.python.org/downloads/),
+* Windows 10, [Anaconda 4.3.0 for Windows, Python 3.6 version](https://www.continuum.io/downloads), Python 3.6.0
+* Windows 10, [Anaconda 4.3.0 for Windows, Python 3.6 version](https://www.continuum.io/downloads), Python 3.5.3 (creating a virtual environment for python 3.5)
+* Windows 10, [Python 2.7.13 for Windows](https://www.python.org/downloads/)
+* Windows 10, [Anaconda 4.3.0 for Windows, Python 3.6 version](https://www.continuum.io/downloads), Python 2.7.13 (creating a virtual environment for python 2.7.13)
+* Windows 10, Anaconda 2.1.0 for Windows, Python 2.7.8
+
+Graphillion for Windows supports only 64 bit environment. We have no plan to support 32 bit version.
 
 ## Install
 
-Just download and run the installer [Graphillion-0.98-r0.win-amd64-py2.7.exe](https://github.com/junkawahara/graphillion_for_windows/blob/master/Graphillion-0.98-r0.win-amd64-py2.7.exe?raw=true).
-
-## Notes
-
-This version is built based on the version 0.98 of graphillion.
+Just type
+```
+pip install graphillion
+```
+under a windows environment.
 
 ## License
 
@@ -25,17 +32,24 @@ Graphillion for Windows obeys the license of graphillion, i.e., graphillion for 
 
 You need not read this section unless you are interested in the technical details. 
 
-1. Download and install Anaconda version 2.1.0 from https://repo.continuum.io/archive/Anaconda-2.1.0-Windows-x86_64.exe (the latest version is not suitable for compiling graphillion).
-2. Add the following paths to the %PATH% variable (Your Anaconda paths may be different):
-```
-set PATH=%PATH%;C:\Anaconda;C:\Anaconda\Scripts;C:\Anaconda\DLLs;C:\Anaconda\MinGW\bin;C:\Anaconda\MinGW\x86_64-w64-mingw32\lib
-```
-3. Download the source (tar.gz or zip file) from Github (Do not use the Pypi tarball):
-   https://github.com/takemaru/graphillion
-4. Run IPython
+### For Python 3.6
+
+1. Install "Microsoft Visual C++ 2015 Build Tools": http://landinghub.visualstudio.com/visual-cpp-build-tools .
+2. Install [Anaconda 4.3.0 for Windows, Python 3.6 version, 64 bit](https://www.continuum.io/downloads).
+3. Clone graphillion from github: ```git clone https://github.com/takemaru/graphillion.git```
+4. Set PATH environment variable: ```set PATH=C:\Anaconda3;C:\Anaconda3\Scripts;%PATH%```(your Anaconda paths may be different).
 5. Change directory to the source directory
    (it should have the file setup.py)
-6. Run ```run setup.py build``` to build
-7. Run ```run setup.py bdist_wininst``` to make an installer for Windows
+6. Run ```python setup.py build```
+7. Run ```python setup.py bdist_wheel```
+
+### For Python 2.7
+
+1. Download and install Anaconda version 2.1.0 from https://repo.continuum.io/archive/Anaconda-2.1.0-Windows-x86_64.exe (the latest version is not suitable for compiling graphillion on Python 2.7).
+2. Add the following paths to the %PATH% variable: ```set PATH=%PATH%;C:\Anaconda;C:\Anaconda\Scripts;C:\Anaconda\DLLs;C:\Anaconda\MinGW\bin;C:\Anaconda\MinGW\x86_64-w64-mingw32\lib``` (your Anaconda paths may be different).
+3. Install wheel: ```pip install wheel```
+4. Clone graphillion from github: ```git clone https://github.com/takemaru/graphillion.git```
+5. Run ```python setup.py build```
+6. Run ```python setup.py bdist_wheel```
 
 In this way, graphillion is compiled by gcc in MinGW. So, this binary might not work under cygwin or Visual C++ environment.
